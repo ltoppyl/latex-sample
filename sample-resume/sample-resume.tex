@@ -9,6 +9,29 @@
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{titlesec}
 
+
+%--------------------
+
+% タイトルの定義
+
+%--------------------
+\makeatletter
+\def\@maketitle{
+\begin{center}
+  {\textgt{レジュメのタイトル} \par} 
+  {{学科 \quad 研究室 \quad 姓 \ 名} \par}
+  {{指導教員: \quad 姓\ 名 \ 教授} \par}
+  \vspace{3mm}
+\end{center}
+}
+
+
+%--------------------
+
+% 本文
+
+%--------------------
 \begin{document}
-  aa
+  \twocolumn % 書式を2段落に設定
+  \maketitle % タイトル部分の表示
 \end{document}
