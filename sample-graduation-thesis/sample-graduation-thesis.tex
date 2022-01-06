@@ -1,0 +1,212 @@
+%--------------------
+
+% モジュールのインポート
+
+%--------------------
+\documentclass[11pt,a4j]{jreport}
+\usepackage{comment}
+\usepackage{float}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage[dvipdfmx]{pict2e}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{underscore}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{ulem}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage[ipaex]{pxchfon}
+\usepackage[top=30truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+
+\begin{document}
+%--------------------
+
+% 表紙
+
+%--------------------
+  \thispagestyle{empty} % このページの下にページ数を表示しない
+    \begin{center}
+      {\Huge \textgt{卒 業 論 文} \par} 
+      {\LARGE {Graduation Thesis} \par}
+      \vspace{20mm}
+    \end{center}
+
+    \begin{table}[htb]
+      \begin{tabular}{ll}
+        \vspace{2mm}
+        {\LARGE \textgt {題 \hfill 目}} & 
+        \begin{tabular}[t]{@{}l@{}}
+          {\LARGE {タイトル1行目}}\\
+          {\LARGE {タイトル2行目}}
+        \end{tabular}\\
+        \vspace{12mm}
+        {\large {T \hfill I \hfill T \hfill L \hfill E:}} & 
+        \begin{tabular}[t]{@{}l@{}}
+          {\LARGE {Title First Line}}\\
+          {\LARGE {Title Second Line}}\\
+          {\LARGE {Title Third Line}}\\
+        \end{tabular}\\
+        \vspace{2mm}
+        {\LARGE \textgt {指 \hfill 導 \hfill 教 \hfill 員}} & {\LARGE {◯◯ 教授}} \\
+        \vspace{12mm}
+        {\large {SUPERVISOR(S):}} & {\large {Prof. ◯◯}} \\
+        \vspace{2mm}
+        {\LARGE \textgt {提 \hfill 出 \hfill 者}} & {\LARGE {名前}} \\
+        \vspace{12mm}
+        {\large {A \hfill U \hfill T \hfill H \hfill O \hfill R:}} & {\large {NAME}} \\
+        \vspace{2mm}
+        {\LARGE \textgt {提 \hfill 出 \hfill 年 \hfill 月}} & {\LARGE {令和4年2月}} \\
+        \vspace{12mm}
+        {\large {D \hfill A \hfill T \hfill E:}} & {\large {February, 2022}}
+      \end{tabular}
+      \vspace{15mm}
+    \end{table}
+
+    \begin{center}
+      {\LARGE \textgt{山口大学工学部知能情報工学科} \par} 
+      {\large Department of Information Science \& Engineering, \par}
+      {\large Faculty of Engineering, Yamaguchi University \par}
+    \end{center}
+
+  \newpage
+
+
+  %--------------------
+
+  % 概要
+
+  %--------------------
+  \thispagestyle{empty}
+  \begin{center}
+    \LARGE \textgt {概要}
+  \end{center}
+  概要
+  \begin{center}
+    \LARGE \textgt {Abstract}
+  \end{center}
+  Abstract
+
+  \newpage
+
+
+  %--------------------
+
+  % 目次の表示
+
+  %--------------------
+  \thispagestyle{empty}
+  \tableofcontents
+  
+  \lhead{\rightmark}
+  \renewcommand{\chaptermark}[1]{
+    \markboth{第\ \normalfont\thechapter\ 章~~#1}{}
+  }
+
+
+  %--------------------
+
+  % 本文
+
+  %--------------------
+  \addtocounter{page}{-3} % 目次以降のページ数の調整
+
+
+  %--------------------
+
+  % はじめに
+
+  %--------------------
+  \chapter{はじめに}
+    \section{研究の背景}
+      研究の背景
+    \section{研究の目的}
+      研究の目的
+    \section{本論文の構成}
+      本論文の構成
+  \newpage
+
+
+  %--------------------
+
+  % 関連研究
+
+  %--------------------
+  \chapter{関連研究}
+    \section{関連研究1}
+    \section{関連研究2}
+    \section{関連研究3}
+  \newpage
+
+
+  %--------------------
+
+  % 提案手法
+
+  %--------------------
+  \chapter{提案手法}
+    \section{提案手法1}
+    \section{提案手法2}
+    \section{提案手法3}
+  \newpage
+
+
+  %--------------------
+
+  % 実験
+
+  %--------------------
+  \chapter{実験}
+    \section{使用データの概要}
+    \section{実験条件}
+    \section{実験結果}
+
+  \newpage
+
+
+  %--------------------
+
+  % 考察
+
+  %--------------------
+  \chapter{考察}
+
+  \newpage
+
+
+  %--------------------
+
+  % 謝辞
+
+  %--------------------
+  \chapter*{謝辞} %章を付けずにタイトル表示
+  \addcontentsline{toc}{chapter}{謝辞} %章立てせずに目次に追加するおまじない
+  謝謝
+
+  \newpage
+
+
+  %--------------------
+  
+  % 参考文献
+  
+  %--------------------
+  \addcontentsline{toc}{chapter}{参考文献} %章立てせずに目次に追加するおまじない
+  \renewcommand{\bibname}{参考文献} %これがないと，タイトルが「関連図書」になってしまう
+  \begin{thebibliography}{99}
+    \bibitem{References1}
+      参考文献1
+
+    \bibitem{References2}
+      参考文献2
+  \end{thebibliography}
+
+\end{document}
