@@ -9,10 +9,17 @@
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{titlesec}
 
+% 参考文献のタイトルの表示の調整用
+\titleformat{\section}[hang]
+{\normalsize\gtfamily}
+{\thesection}{.1em}{}[]
+\titlespacing{\section}
+{0pt}{.1ex plus .1ex minus .1ex}{0pt}
+
 
 %--------------------
 
-% タイトルの定義
+% タイトル
 
 %--------------------
 \makeatletter
@@ -34,4 +41,77 @@
 \begin{document}
   \twocolumn % 書式を2段落に設定
   \maketitle % タイトル部分の表示
+
+  \leftline{1. 図のサンプル}
+    図 \ref{fig:sample-image1} のようにして, 図番号は参照できる. \\
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=70mm]{sample-image1.png}
+      \caption{図のサンプル1} % 表示される図のタイトル
+      \label{fig:sample-image1} % 文章中で参照するためのラベル
+    \end{figure}\\
+
+    図番号は、自動で付与されるため, 図 \ref{fig:sample-image2} のようにすると, 違う図を参照できる. \\
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=60mm]{sample-image2.png}
+      \caption{図のサンプル2} 
+      \label{fig:sample-image2} 
+    \end{figure}\\
+
+    \par
+  
+  \leftline{2. 数式のサンプル}
+    文中で数式を利用するときは, $ f(x) = ax^{2} + bx + c $ のようにして書くと良い. \\
+    数式に番号をつけて参照したい時は、図と同じように, (\ref{eq:sample-formula1})式 のようにすると良い.
+    \begin{align}
+      sum \ = \ \sum_{i=1}^{N} \ a_{i}
+      \label{eq:sample-formula1}
+    \end{align}\\
+
+    複数行の数式で, 1つの番号を振りたい時は, 下のようにしてできる. (他にも方法はあるかも!?)\\
+    \begin{equation}
+      \begin{split}
+        sum \ &= \ a_{1} + a_{2} + \cdots + a_{N} \\
+        &= \sum_{i=1}^{N} \ a_{i}
+        \label{eq:sample-formula2}
+      \end{split}
+    \end{equation}\\
+
+    数式の細かい書き方に関しては, Google 先生で検索!! \\
+    
+    \par
+  
+    \leftline{3. 表のサンプル}
+      表番号の参照も. 表 \ref{table:sample-table} のようにする. \\ 
+      \begin{table}[htbp]
+        \caption{表のサンプル} % 表のタイトル
+        \label{table:sample-table}
+        \centering
+        \begin{tabular}{l|ll}
+            & A  & B  \\ \hline
+          A & 10 & 20 \\
+          B & 30 & 40
+        \end{tabular}
+      \end{table}
+
+      \par
+
+    \leftline{4. 参考文献の参照}
+      参考文献の参照は, \cite{References1} , \cite{References2} のようにして行う. \\
+
+      \par
+
+    %--------------------
+
+    % 参考文献
+
+    %-------------------- 
+    \begin{thebibliography}{99}
+      \bibitem{References1}
+        参考文献1
+      \bibitem{References2}
+        参考文献2
+        
+    \end{thebibliography}
 \end{document}
