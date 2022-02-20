@@ -24,8 +24,24 @@
 \usepackage{algorithmic}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{enumerate}
+\usepackage{otf}
+\usepackage{remreset}
+\usepackage{here}
 \usepackage[ipaex]{pxchfon}
 \usepackage[top=30truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+\setcounter{secnumdepth}{4}
+
+% 図表式番号を通し番号に設定
+\makeatletter 
+\@removefromreset{figure}{chapter}
+\def\thefigure{\arabic{figure}}
+\@removefromreset{table}{chapter}
+\def\thetable{\arabic{table}}
+\@removefromreset{equation}{chapter}
+\def\theequation{\arabic{equation}}
+\makeatother
+
 
 \begin{document}
 %--------------------
@@ -103,8 +119,15 @@
   % 目次の表示
 
   %--------------------
-  \thispagestyle{empty}
-  \tableofcontents
+  {
+    \makeatletter
+    \let\ps@jpl@in\ps@empty
+    \makeatother
+    \pagestyle{empty}
+    \tableofcontents
+    \newpage
+  }
+
   
   \lhead{\rightmark}
   \renewcommand{\chaptermark}[1]{
@@ -117,7 +140,7 @@
   % 本文
 
   %--------------------
-  \addtocounter{page}{-3} % 目次以降のページ数の調整
+  \setcounter{page}{1} %ここからページ数をカウントする
 
 
   %--------------------
@@ -208,5 +231,22 @@
     \bibitem{References2}
       参考文献2
   \end{thebibliography}
+
+
+  %--------------------
+  
+  % 付録
+  
+  %--------------------
+  \chapter*{付録} %章を付けずにタイトル表示
+  \addcontentsline{toc}{chapter}{付録} %章立てせずに目次に追加するおまじない
+    \appendix
+    \setcounter{section}{0} % section の番号をゼロにリセットする
+    \renewcommand{\thesection}{\Alph{section}}
+    \section{付録A}
+      \subsection{付録A-1}
+
+    \section{付録B}
+      \subsection{付録B-1}
 
 \end{document}
